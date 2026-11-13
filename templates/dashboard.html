@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block heading %}Acceso concedido{% endblock %}
+{% block content %}
+<p class="ok">Bienvenido, <strong>{{ user }}</strong>. Completaste los dos factores.</p>
+<p>Esta area esta protegida por el decorador <code>requires_mfa</code>.</p>
+<form method="post" action="{{ url_for('logout') }}">
+  <button type="submit">Cerrar sesion</button>
+</form>
+{% endblock %}

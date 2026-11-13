@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Verificar codigo{% endblock %}
+{% block heading %}Factor 2 - Codigo de 6 digitos{% endblock %}
+{% block content %}
+<form method="post" action="{{ url_for('verify') }}">
+  <label>Codigo TOTP
+    <input type="text" name="code" inputmode="numeric" pattern="[0-9]{6}"
+           maxlength="6" autocomplete="one-time-code" required>
+  </label>
+  <button type="submit">Verificar</button>
+</form>
+<p class="hint">
+  ¿Aun no registras el autenticador?
+  <a href="{{ url_for('setup') }}">Configurar aqui</a>.
+</p>
+{% endblock %}

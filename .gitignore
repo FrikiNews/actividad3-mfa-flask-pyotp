@@ -1,0 +1,15 @@
+# Entorno virtual
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Secretos
+.env
+*.env
+
+# Estado de Terraform (por consistencia entre repos del laboratorio)
+*.tfstate
+*.tfstate.*
+.terraform/
+LOCALSTACK_AUTH_TOKEN*

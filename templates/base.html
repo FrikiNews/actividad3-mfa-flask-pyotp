@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}Laboratorio MFA{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main class="card">
+    <h1>{% block heading %}Laboratorio MFA{% endblock %}</h1>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for m in messages %}<p class="flash">{{ m }}</p>{% endfor %}
+      {% endif %}
+    {% endwith %}
+    {% if error %}<p class="error">{{ error }}</p>{% endif %}
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>

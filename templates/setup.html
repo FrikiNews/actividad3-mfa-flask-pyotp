@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Configurar autenticador{% endblock %}
+{% block heading %}Registrar el autenticador{% endblock %}
+{% block content %}
+<p>Escanea el codigo QR con Google Authenticator (o agrega la clave manualmente).</p>
+
+{% if qr %}
+  <img class="qr" src="{{ qr }}" alt="Codigo QR TOTP">
+{% else %}
+  <p class="hint">(QR no disponible: instala <code>qrcode[pil]</code> para verlo.)</p>
+{% endif %}
+
+<p>Clave manual (Base32):</p>
+<p><code class="secret">{{ secret }}</code></p>
+
+<details>
+  <summary>URI de aprovisionamiento</summary>
+  <p><code>{{ uri }}</code></p>
+</details>
+
+<p class="error">Esta clave es un secreto: no la compartas ni la publiques. Quien la
+tenga puede generar tus mismos codigos.</p>
+
+<p><a href="{{ url_for('verify') }}">Volver a verificar</a></p>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Iniciar sesion{% endblock %}
+{% block heading %}Factor 1 - Iniciar sesion{% endblock %}
+{% block content %}
+<form method="post" action="{{ url_for('login') }}">
+  <label>Usuario
+    <input type="text" name="username" autocomplete="username" required>
+  </label>
+  <label>Contrasena
+    <input type="password" name="password" autocomplete="current-password" required>
+  </label>
+  <button type="submit">Entrar</button>
+</form>
+<p class="hint">Demo: usuario <code>demo</code> / contrasena <code>demo1234</code></p>
+{% endblock %}
